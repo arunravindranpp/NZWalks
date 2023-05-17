@@ -20,6 +20,8 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksConnectio
 builder.Services.AddDbContext<NZWalksAuthDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksAuthConnectionString")));
 builder.Services.AddScoped<IRegionRepository, SqlRegionRepository>();
+builder.Services.AddScoped<ITokenRepository, TokenRepository>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 builder.Services.AddIdentityCore<IdentityUser>()
@@ -27,7 +29,6 @@ builder.Services.AddIdentityCore<IdentityUser>()
     .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("NZWalks")
     .AddEntityFrameworkStores<NZWalksAuthDbContext>()
     .AddDefaultTokenProviders();
-
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -48,8 +49,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwr:Issuer"],
-        ValidAudience = builder.Configuration["Jwr:Audience"],
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     });
 
