@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ConflictAutomation.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{087a0093-79f3-4021-8c5d-f38e7981852e}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ConflictAutomation.DB</RootNamespace>
+    <AssemblyName>ConflictAutomation.DB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Sproc" />
+    <Folder Include="Table" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\PACE" />
+    <Folder Include="View" />
+    <Folder Include="Func" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sproc\CAU_Summary.sql" />
+    <None Include="Table\CAU_ConflictLookup.sql" />
+    <None Include="Table\CAU_Questions.sql" />
+    <None Include="Table\CAU_ExceptionLog.sql" />
+    <None Include="Sproc\sp_REP_Conflict_Checker_getData.sql" />
+    <None Include="Table\CAU_SkipCountries.sql" />
+    <None Include="Table\CAU_SanctionsContact.sql" />
+    <None Include="Table\CAU_ConclusionConditions.sql" />
+    <None Include="Scripts\CAU_APGRolesToBlockResearch.sql" />
+    <None Include="Table\CAU_ThreeTrials.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PACE\ConflictSubStatus_Insert.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Table\CAU_ProcessLog.sql" />
+    <Build Include="Table\CAU_ClientSideRoles.sql" />
+    <Build Include="Table\CAU_NonClientSideSORT.sql" />
+    <None Include="Table\KeywordGeneratorGeoLocationNames.sql" />
+    <None Include="Table\KeywordGeneratorPrefixRemovals.sql" />
+    <None Include="Table\KeywordGeneratorSpecialCharacterReplacements.sql" />
+    <None Include="Table\KeywordGeneratorSubstringReplacements.sql" />
+    <None Include="View\vwKeywordGeneratorForEntitiesGeoLocationNames.sql" />
+    <None Include="View\vwKeywordGeneratorForEntitiesPrefixRemovals.sql" />
+    <None Include="View\vwKeywordGeneratorForEntitiesSpecialCharacterReplacements.sql" />
+    <None Include="View\vwKeywordGeneratorForEntitiesSubstringReplacements.sql" />
+    <None Include="View\vwKeywordGeneratorForIndividualsSpecialCharacterReplacements.sql" />
+    <None Include="View\vwKeywordGeneratorForIndividualsSubstringReplacements.sql" />
+    <None Include="Scripts\CAU_ClientSideRoles.sql" />
+    <None Include="Scripts\CAU_NonClientSideSORT.sql" />
+    <Build Include="Table\CAU_APGRolesToBlockResearch.sql" />
+    <None Include="Scripts\CAU_CRRGUPSearch.sql" />
+    <None Include="Table\KeywordGeneratorDiacriticsReplacements.sql" />
+    <None Include="View\vwKeywordGeneratorDiacriticsReplacements.sql" />
+    <None Include="Sproc\SP_GET_GCO_TEAM_BY_COUNTRY_NAME.sql" />
+    <None Include="Sproc\SP_GET_RM_CONTACTS_BY_COUNTRY_NAME.sql" />
+    <Build Include="FN_GET_GCO_TEAM_BY_COUNTRY_NAME.sql" />
+    <Build Include="FN_GET_RM_CONTACTS_BY_COUNTRY_NAME.sql" />
+    <None Include="Func\FN_GET_GCO_TEAM_BY_COUNTRY_NAME.sql" />
+    <None Include="Func\FN_GET_RM_CONTACTS_BY_COUNTRY_NAME.sql" />
+    <None Include="Table\CAU_KeyValuePairs.sql" />
+  </ItemGroup>
+</Project>

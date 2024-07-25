@@ -1,0 +1,32 @@
+﻿KeyGen.exe command-line tool, for QA team tests
+
+
+To identify Subject Type:
+	KeyGen identify "Name to search for" [duns:"999999999"] [gisid:"9999999"] [paceapgloc:"xxxxx"]
+		The duns, gisid, and paceapgloc parameters are optional.  When not specified, the tool considers empty strings.
+
+Examples:
+	KeyGen identify "ACME Gadgets" duns:"150483782"
+	KeyGen identify "Apple Inc."
+	KeyGen identify "John Smith" gisid:"1307422" paceapgloc:""
+	KeyGen identify "Mrs. Jane Doe"
+	KeyGen identify "trump, Donald"
+	KeyGen identify "Kennedy, John F."
+	KeyGen identify "kennedy , john f"
+
+
+To compute keywords:
+	KeyGen entity|individual|entfinscan|indivfinscan "Name to search for"
+
+Examples:
+	KeyGen entity "Facebook (Thailand) Limited"
+	KeyGen individual "Young, Christie Lee Arlene."
+	KeyGen entfinscan "International Bank for Reconstruction and Development"
+	KeyGen indivfinscan "John Patrick Alfred Paul H Smith"
+	KeyGen indivfinscan "  Mr. Harold O’Donnel , Peter F O’Toole   "
+	KeyGen indivfinscan "Jean-Luc Cartier-Bresson"
+	KeyGen indivfinscan "Jörgen W Friedrich Küttner"
+
+
+To get help:
+	KeyGen /?

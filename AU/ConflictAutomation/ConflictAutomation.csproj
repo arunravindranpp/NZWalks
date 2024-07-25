@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+	<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+	<GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ConflictAutomation\**" />
+    <EmbeddedResource Remove="ConflictAutomation\**" />
+    <None Remove="ConflictAutomation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\DataRowExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.0" />
+    <PackageReference Include="EPPlus" Version="7.1.2" />
+    <PackageReference Include="FuzzySharp" Version="2.0.2" />
+    <PackageReference Include="itext7.pdfhtml" Version="4.0.5" />
+    <PackageReference Include="LazyCache" Version="2.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    <PackageReference Include="NEST" Version="7.17.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Edge Profile.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="FinScanMatchReport.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PDFFile_8.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="XLICONS.EXE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\KeyGen\" />
+    <Folder Include="Services\ResearchSummaryEngine\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Vbe.Interop">
+      <HintPath>ExternalDlls\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="office">
+      <HintPath>ExternalDlls\OFFICE.DLL</HintPath>
+    </Reference>
+    <Reference Include="PACE">
+      <HintPath>ExternalDlls\PACE.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\PACE\bin\Debug\net6.0\RestSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

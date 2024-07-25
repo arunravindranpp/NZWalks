@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConflictAutomation DEV": {
+      "commandName": "Project",
+      "commandLineArgs": "-ProcessCheckWithouteNate"
+    }
+  }
+}
